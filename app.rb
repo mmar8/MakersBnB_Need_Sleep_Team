@@ -13,12 +13,14 @@ class SleeperManager<Sinatra::Base
   end
 
   post '/signup' do
-    session[:name] = params[:name]
+    session[:user] = User.create(name: params[:name], username: params[:username], password: params[:password], email: params[:email])
+
     redirect '/welcome'
   end
 
   get '/welcome' do
-    @name = session[:name]
+    @user = session[:user]
+
     erb :welcome
   end
     run! if app_file == $0
