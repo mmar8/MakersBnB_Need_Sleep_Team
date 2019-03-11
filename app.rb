@@ -1,5 +1,6 @@
 require "sinatra/base"
 require "pg"
+require './lib/user'
 
 class SleeperManager<Sinatra::Base
   enable :sessions
