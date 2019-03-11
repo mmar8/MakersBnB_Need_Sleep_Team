@@ -13,11 +13,17 @@ class SleeperManager<Sinatra::Base
       description: params[:description],
       price: params[:price]
     )
-    redirect('/space_created')
+    redirect('/space-created')
   end
 
-  get '/space_created' do 
+  get '/space-created' do 
     erb :space_created
+  end
+
+  get '/spaces' do
+    @spaces = Space.all
+    
+    erb :spaces
   end
 
   run! if app_file == $0

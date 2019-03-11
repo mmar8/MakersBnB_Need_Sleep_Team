@@ -1,0 +1,9 @@
+<div>
+  <% @spaces.each do |space| %>
+    <div class='space' id='<%= space.id %>'>
+      <span><%= space.name %></span>
+      <span><%= space.description %></span>
+      <span><%= space.price %></span>
+    </div>
+  <% end %>
+</div>
