@@ -1,0 +1,6 @@
+psql CREATE DATABASE sleepers ;
+\c sleepers ;
+CREATE TABLE users(id serial PRIMARY KEY , name varchar(60), username varchar(60), password varchar(60), email varchar(60) );
+psql CREATE DATABASE sleepers_test;
+\c sleepers_test ;
+CREATE TABLE users(id serial PRIMARY KEY , name varchar(60), username varchar(60), password varchar(60), email varchar(60) );
