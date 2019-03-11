@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby "2.6.0"
 gem "pg"
 gem "sinatra"
-gem 'active_record'
+gem 'activerecord'
 
 group :test do
   gem "capybara"
