@@ -3,7 +3,7 @@
     <div class='space' id='<%= space.id %>'>
       <span><%= space.name %></span>
       <span><%= space.description %></span>
-      <span><%= space.price %></span>
+      <span>£<%= space.price.round %> per night</span>
     </div>
   <% end %>
 </div>  
