@@ -1,10 +1,10 @@
 <div class="gallery">
   <% @spaces.each do |space| %>
     <div class='space' id='<%= space.id %>'>
-      <span><%= space.name %></span>
-      <span><%= space.description %></span>
-      <span>£<%= space.price.round %> per night</span>
+      <div class="thumbnail" name='name'> <h4><%= space.name %></h4>
+        <p class="tag" name='price'>£<%= space.price.round %> per night</p>
+        <p class="text_column" name='description'><%= space.description %></p>
+      </div>
     </div>
   <% end %>
 </div>  
-
