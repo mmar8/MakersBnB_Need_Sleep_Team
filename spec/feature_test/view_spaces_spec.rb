@@ -1,9 +1,9 @@
 require './lib/space.rb'
 
-feature 'able to view all spaces' do 
+feature 'able to view all spaces' do
   scenario 'view all spaces' do
     spaces = [
-      { name: 'London beauty', description: 'big flat', price: 100 }, 
+      { name: 'London beauty', description: 'big flat', price: 100 },
       { name: 'Trump Tower', description: 'luxury penthouse', price: 1000 }
     ]
 
