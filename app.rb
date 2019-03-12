@@ -2,6 +2,8 @@ require "sinatra/base"
 require "pg"
 require './lib/user'
 require './lib/space.rb'
+
+
 class SleeperManager<Sinatra::Base
   enable :sessions
   get '/' do
@@ -14,7 +16,8 @@ class SleeperManager<Sinatra::Base
   end
 
   post '/signup' do
-     session[:userid] = User.create(name: params[:name], username: params[:username], password: params[:password], email: params[:email]).id
+
+    session[:userid] = User.create(name: params[:name], username: params[:username], password_input: params[:password], email: params[:email]).id
     redirect "/user/#{session[:userid]}"
   end
 
@@ -28,7 +31,7 @@ class SleeperManager<Sinatra::Base
   end
 
   post '/login' do
-    user = User.find_by(username: params[:username], password: params[:password])
+    p user = User.authenticated_user(username: params[:username], password_input: params[:password])
     if user != nil
       session[:userid] = user.id
       redirect "/user/#{session[:userid]}"
