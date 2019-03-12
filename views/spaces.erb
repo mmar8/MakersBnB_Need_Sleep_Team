@@ -2,16 +2,16 @@
     <link rel="stylesheet" type="text/css" href="/sleeper.css">
   </head>
   
-  <% @spaces.each do |space| %>
+  <div class='page'>
     <div class='gallery'>
-      <div class='space' id='<%= space.id %>'>
-        <div class='thumbnail' name='name'> 
+      <% @spaces.each do |space| %>
+        <div class='thumbnail space' id='<%= space.id %>'> 
           <h4><%= space.name %></h4>
           <p class='tag' name='price'>£<%= space.price.round %> per night</p>
           <p class='text_column' name='description'><%= space.description %></p>
         </div>
-      </div>
+      <% end %>
     </div>  
-  <% end %>
+  </div>  
   
 
