@@ -9,7 +9,7 @@ class SleeperManager<Sinatra::Base
 
   configure do
     set :views, 'views/'
-    set :root, File.expand_path('../../../', __FILE__)
+    set :public_folder, File.expand_path('../public', __FILE__)
   end
   
   enable :sessions
