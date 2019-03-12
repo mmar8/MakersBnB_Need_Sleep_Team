@@ -14,7 +14,7 @@ end
 
 feature "Login to sleeper" do
   scenario 'Allow user to login and see the welcome page' do
-    p User.create(name: 'joe123', username: 'joe', password: '1234', email: 'o@g.com')
+     User.create(name: 'joe123', username: 'joe', password: '1234', email: 'o@g.com')
     visit '/login'
     fill_in 'username', with: 'joe'
     fill_in 'password', with: '1234'

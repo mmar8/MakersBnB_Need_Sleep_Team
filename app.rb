@@ -71,5 +71,10 @@ class SleeperManager<Sinatra::Base
     erb :spaces
   end
 
+  get '/log-out' do
+    session.clear
+    redirect '/'
+  end
+
   run! if app_file == $0
 end
