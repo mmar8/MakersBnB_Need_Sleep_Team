@@ -8,7 +8,8 @@ feature 'To be able to sign out' do
     fill_in('password', with: '1234')
     fill_in('email', with: 'Bob@bob.bob')
     click_button('submit')
-    expect(current_path).to eq '/welcome'
+    userid = Capybara.current_session.driver.request.session[:userid]
+    expect(current_path).to eq "/user/#{userid}"
     click_button('log-out')
     expect(current_path).to eq '/'
     expect(Capybara.current_session.driver.request.session.empty?).to eq true

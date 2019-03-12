@@ -20,6 +20,7 @@ feature "Login to sleeper" do
     fill_in 'password', with: '1234'
     click_button 'log_in'
     expect(page).to have_content('Welcome joe123')
-    expect(current_path).to eq '/welcome'
+    userid = Capybara.current_session.driver.request.session[:userid]
+    expect(current_path).to eq "/user/#{userid}"
   end
 end

@@ -11,5 +11,7 @@ feature 'Sign up to Sleeper' do
     fill_in('email', with: 'Bob@bob.bob')
     click_button('submit')
     expect(page).to have_content('Welcome Bob')
+    userid = Capybara.current_session.driver.request.session[:userid]
+    expect(current_path).to eq "/user/#{userid}"
   end
 end

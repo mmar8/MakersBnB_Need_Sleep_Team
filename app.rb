@@ -15,19 +15,11 @@ class SleeperManager<Sinatra::Base
 
   post '/signup' do
      session[:userid] = User.create(name: params[:name], username: params[:username], password: params[:password], email: params[:email]).id
-    redirect '/welcome'
+    redirect "/user/#{session[:userid]}"
   end
 
-  get '/welcome' do
+  get '/user/:userid' do
      @user = User.find_by(id: session[:userid])
-   #  if session[:username] != nil
-   #    @user = session[:username]
-   # elsif session[:user] != nil
-   #    @userr = session[:user]
-   #    @user = @userr.name
-   # else
-   #   @user = 'error'
-   # end
     erb :welcome
   end
 
@@ -36,17 +28,14 @@ class SleeperManager<Sinatra::Base
   end
 
   post '/login' do
-
-    session[:userid] = User.find_by(username: params[:username], password: params[:password]).id
-    # session[:username]=params[:username]
-    if session[:userid] != nil
-    redirect '/welcome'
+    user = User.find_by(username: params[:username], password: params[:password])
+    if user != nil
+      session[:userid] = user.id
+      redirect "/user/#{session[:userid]}"
     else
-    erb :error
+      erb :error
     end
   end
-
-
 
   get '/space/creation' do
     erb :create_space
@@ -67,7 +56,6 @@ class SleeperManager<Sinatra::Base
 
   get '/spaces' do
     @spaces = Space.all
-
     erb :spaces
   end
 
