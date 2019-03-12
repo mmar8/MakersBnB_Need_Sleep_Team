@@ -10,6 +10,11 @@
           <p class='tag' name='price'>£<%= space.price.round %> per night</p>
           <p class='text_column' name='description'><%= space.description %></p>
         </div>
+        
+        <form action='/space/:id/booking' method='post'>
+            <input type="textarea" name='request_description'>
+            <input type='submit' value='Send'>
+        </form>
       <% end %>
     </div>  
   </div>  
