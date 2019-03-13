@@ -4,9 +4,9 @@ psql CREATE DATABASE sleepers ;
 
 CREATE TABLE users(id serial PRIMARY KEY , name varchar(60), username varchar(60), password_digest varchar(60), email varchar(60) );
 CREATE TABLE spaces(
-  id serial PRIMARY KEY, 
-  owner_id int(4) REFERENCES users(id), 
-  name varchar(60), 
+  id serial PRIMARY KEY,
+  owner_id int() REFERENCES users(id),
+  name varchar(60),
   description varchar(2000),
   price float(4)
 );
@@ -18,9 +18,10 @@ psql CREATE DATABASE sleepers_test;
 
 CREATE TABLE users(id serial PRIMARY KEY, name varchar(60), username varchar(60), password_digest varchar(60), email varchar(60) );
 CREATE TABLE spaces(
-  id serial PRIMARY KEY, 
-  owner_id int(4) REFERENCES users(id), 
-  name varchar(60), 
-  description varchar(2000), 
+  id serial PRIMARY KEY,
+  owner_id int() REFERENCES users(id),
+  name varchar(60),
+  description varchar(2000),
   price float(4)
 );
+CREATE TABLE bookings(id serial PRIMARY KEY , space_id int() REFRENCES spaces(id), guest_id int() REFRENCES users(id), request_text varchar(1000))
