@@ -17,7 +17,8 @@ class SpaceController < Sinatra::Base
       description: params[:description],
       price: params[:price]
     )
-    redirect('/space-created')
+    # redirect('/space-created')
+    redirect('/spaces')
   end
 
   get '/space-created' do
