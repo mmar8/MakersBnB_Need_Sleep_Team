@@ -3,8 +3,16 @@ require "pg"
 require './lib/user'
 require './lib/space.rb'
 
+require "./controllers/space_controller.rb"
 
 class SleeperManager<Sinatra::Base
+  use SpaceController
+
+  configure do
+    set :views, 'views/'
+    set :public_folder, File.expand_path('../public', __FILE__)
+  end
+
   enable :sessions
   get '/' do
     session.clear()
