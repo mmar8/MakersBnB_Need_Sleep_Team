@@ -10,10 +10,10 @@ def create_space(name, description, price)
 end
 
 def sign_up(
-  name: name, 
-  username: username, 
-  password: password, 
-  email: email
+  name:, 
+  username:, 
+  password:, 
+  email:
 )
   visit '/'
   click_button('sign-up')
@@ -28,7 +28,7 @@ def sign_up(
   click_button('submit')
 end
 
-def login(username, password)
+def login(username:, password:)
   visit '/login'
 
   fill_in 'username', with: username
@@ -47,7 +47,7 @@ def create_user_then_login()
     email: 'o@g.com'
   )
 
-  login(username, password)
+  login(username: username, password: password)
 
   @user
 end

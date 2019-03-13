@@ -9,10 +9,5 @@ class SleeperManager<Sinatra::Base
 
   enable :sessions
 
-  configure do
-    set :views, 'views/'
-    set :public_folder, File.expand_path('../public', __FILE__)
-  end
-
   run! if app_file == $0
 end

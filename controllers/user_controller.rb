@@ -34,6 +34,7 @@ class UserController < Sinatra::Base
 
   post '/login' do
     user = User.find_by(username: params[:username])
+
     if user && user.authenticate(params[:password])
       session[:userid] = user.id
       redirect "/spaces"
@@ -46,5 +47,4 @@ class UserController < Sinatra::Base
     session.clear
     redirect '/'
   end
-
 end
