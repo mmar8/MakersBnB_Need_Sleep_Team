@@ -13,7 +13,7 @@ feature 'able to create space' do
   end
 
   scenario 'inform user space created' do
-    expect(page).to have_content('Listing successfully created')
+    expect(page).to have_content('London')
   end
 
   scenario 'saved space includes name' do

@@ -1,0 +1,49 @@
+require "sinatra/base"
+require './lib/user.rb'
+
+class UserController < Sinatra::Base
+  configure do
+    set :views, 'views/'
+    set :root, File.expand_path('../../../', __FILE__)
+  end
+
+  get '/' do
+    session.clear()
+    erb :index
+  end
+
+  get '/signup' do
+    erb :signup
+  end
+
+  post '/signup' do
+    @user = User.create(name: params[:name], username: params[:username], password: params[:password], email: params[:email])
+    session[:userid]=@user.id
+    redirect "/user/#{session[:userid]}"
+  end
+
+  get '/user/:userid' do
+     @user = User.find_by(id: session[:userid])
+    erb :welcome
+  end
+
+  get '/login' do
+    erb :login
+  end
+
+  post '/login' do
+    user = User.find_by(username: params[:username])
+    if user && user.authenticate(params[:password])
+      session[:userid] = user.id
+      redirect "/user/#{user.id}"
+    else
+      erb :error
+    end
+  end
+
+  get '/log-out' do
+    session.clear
+    redirect '/'
+  end
+
+end

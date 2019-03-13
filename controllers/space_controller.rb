@@ -1,5 +1,4 @@
 require "sinatra/base"
-require "pg"
 require './lib/space.rb'
 
 class SpaceController < Sinatra::Base
@@ -11,25 +10,25 @@ class SpaceController < Sinatra::Base
   get '/space/creation' do
     erb :create_space
   end
-  
+
   post '/space' do
     Space.create(
-      name: params[:name], 
+      name: params[:name],
       description: params[:description],
       price: params[:price],
       owner_id: session[:userid]
     )
-    redirect('/space-created')
 
+    redirect('/spaces')
   end
-  
-  get '/space-created' do 
+
+  get '/space-created' do
     erb :space_created
   end
-  
+
   get '/spaces' do
     @spaces = Space.all
-    
+
     erb :spaces
   end
 end
