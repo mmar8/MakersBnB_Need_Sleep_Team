@@ -12,37 +12,33 @@ body {
 .gallery {
   display: flex;
   flex-flow: row wrap;
-	background-color: #FFFFFF;
 	padding-bottom: 35px;
 	margin-top: -5px;
   width: 80%;
 }
 
-.gallery .thumbnail h4 {
-	margin-top: 5px;
-	margin-bottom: 5px;
-	color: #52BAD5;
-	text-align: left;
-	padding-left: 20px;
-	padding-right: 20px;
+.gallery .space-price {
+	margin-bottom: 2px;
 }
 
-.gallery .thumbnail p {
-	margin: 0;
+.gallery .space-name {
+	margin-bottom: 5px;
+}
+
+.gallery .space-desc {
 	color: #B3B3B3;
-	text-align: left;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 .thumbnail {
-  text-align: center;
+  text-align: left;
   width: 24%;
 	margin-top: 35px;
 	background-color: #F8F8F8;
 	padding-bottom: 20px;
 	margin-left: 0.5%;
-	margin-right: 0.5%;
+  margin-right: 0.5%;
+  padding-left: 25px;
+  padding-right: 25px;
 	border-radius: 3px;
 	padding-top: 20px;
 	border-bottom: 4px solid #6DC7D0;
@@ -53,8 +49,6 @@ body {
 	padding-bottom: 4px;
 	padding-top: 4px;
 	text-align: left;
-	padding-left: 20px;
-	padding-right: 20px;
 }
 
 .text_column {

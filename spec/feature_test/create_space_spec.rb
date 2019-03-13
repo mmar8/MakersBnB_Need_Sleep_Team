@@ -1,12 +1,34 @@
+require './lib/space.rb'
+require_relative 'web_helper.rb'
+
 feature 'able to create space' do
-  scenario 'create a space' do
-    visit ('/space/creation')
-    fill_in('name', with: 'London')
-    fill_in('description', with: 'spacious flat in central London')
-    fill_in('price', with: 100)
+  let(:name) { 'London' }
+  let(:description) { 'spacious flat in central London' } 
+  let(:price) { 100 }
 
-    click_button 'Submit'
+  before(:each) do
+    @user = create_user_then_login
+    create_space(name, description, price)
+    @saved_space = Space.all[0]
+  end
 
+  scenario 'inform user space created' do
     expect(page).to have_content('London')
+  end
+
+  scenario 'saved space includes name' do
+    expect(@saved_space.name).to eq(name)
+  end
+
+  scenario 'saved space includes price' do
+    expect(@saved_space.price).to eq(price)
+  end
+
+  scenario 'saved space includes description' do
+    expect(@saved_space.description).to eq(description)
+  end
+
+  scenario 'saved space includes owner_id' do 
+    expect(@saved_space.owner_id).to eq(@user.id)
   end
 end
