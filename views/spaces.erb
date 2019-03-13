@@ -6,9 +6,9 @@
     <div class='gallery'>
       <% @spaces.each do |space| %>
         <div class='thumbnail space' id='<%= space.id %>'> 
-          <h4><%= space.name %></h4>
-          <p class='tag' name='price'>£<%= space.price.round %> per night</p>
-          <p class='text_column' name='description'><%= space.description %></p>
+          <div class='space-name'><%= space.name %></div>
+          <div class='tag space-price' name='price'>£<%= space.price.round %> per night</div>
+          <div class='text_column space-desc' name='description'><%= space.description %></div>
         </div>
         
         <form action='/space/:id/booking' method='post'>
