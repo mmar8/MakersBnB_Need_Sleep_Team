@@ -7,6 +7,13 @@ class SpaceController < Sinatra::Base
     set :root, File.expand_path('../../../', __FILE__)
   end
 
+  before do 
+    path = request.path_info
+    if (path != "/login"  && path != '/signup') && !session[:userid]
+      redirect("/login")
+    end
+  end
+
   get '/space/creation' do
     erb :create_space
   end

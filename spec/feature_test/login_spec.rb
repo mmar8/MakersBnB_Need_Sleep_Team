@@ -18,3 +18,10 @@ feature "Login to sleeper" do
     expect(current_path).to eq "/spaces"
   end
 end
+
+feature "Entring the routes without logging in" do
+  scenario "We will be directed to log in page without logging it" do
+    visit "/spaces"
+    expect(current_path).to eq "/login"
+  end
+end
