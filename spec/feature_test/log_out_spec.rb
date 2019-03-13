@@ -1,16 +1,14 @@
+require_relative 'web_helper'
 feature 'To be able to sign out' do
   scenario 'I would like to be able to sign out' do
-    visit '/'
-    click_button('sign-up')
-    expect(current_path).to eq '/signup'
-    fill_in('name', with: 'Bob')
-    fill_in('username', with: 'BobBuilder')
-    fill_in('password', with: '1234')
-    fill_in('email', with: 'Bob@bob.bob')
-    click_button('submit')
+    sign_up(name: 'Bob',
+      username: 'BobBuilder',
+      password: '1234',
+      email: 'Bob@bob.bob' 
+      )
 
     click_button('log-out')
-    expect(current_path).to eq '/'
-    expect(Capybara.current_session.driver.request.session.empty?).to eq true
+    expect(current_path).to eq '/login'
+    expect(Capybara.current_session.driver.request.session[:userid]).to eq nil
   end
 end

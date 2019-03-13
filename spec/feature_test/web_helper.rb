@@ -15,8 +15,8 @@ def sign_up(
   password:, 
   email:
 )
-  visit '/'
-  click_button('sign-up')
+  visit '/signup'
+  # click_button('sign-up')
 
   expect(current_path).to eq '/signup'
 

@@ -1,7 +1,6 @@
 feature 'shows listings after creation of space' do
   scenario 'As a logged in user I can create a speace & then view the total spaces' do
-    visit '/'
-    click_button('sign-up')
+    visit '/signup'
     fill_in('name', with: 'Bob')
     fill_in('username', with: 'BobBuilder')
     fill_in('password', with: '1234')

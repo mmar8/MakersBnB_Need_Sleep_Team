@@ -7,11 +7,6 @@ class UserController < Sinatra::Base
     set :root, File.expand_path('../../../', __FILE__)
   end
 
-  get '/' do
-    session.clear()
-    erb :index
-  end
-
   get '/signup' do
     erb :signup
   end
@@ -45,6 +40,6 @@ class UserController < Sinatra::Base
 
   get '/log-out' do
     session.clear
-    redirect '/'
-  end
+    redirect "/login" 
+  end 
 end
