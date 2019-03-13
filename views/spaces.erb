@@ -3,6 +3,12 @@
   </head>
   
   <div class='page'>
+    <form action='/space/creation' method='get'>
+      <input type='submit' value='create-space'>
+    </form>
+    <form action='/log-out' method='get'>
+      <input type='submit' value='log-out'>
+    </form>
     <div class='gallery'>
       <% @spaces.each do |space| %>
         <div class='thumbnail space' id='<%= space.id %>'> 

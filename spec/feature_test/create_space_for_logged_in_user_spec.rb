@@ -8,10 +8,7 @@ feature 'Allow Creation of space' do
     fill_in('email', with: 'Bob@bob.bob')
     click_button('submit')
     click_button('create-space')
-    fill_in 'name', with: 'Makers'
-    fill_in 'description', with: 'Living Room'
-    fill_in 'price', with: '100'
-    click_button('Submit')
-    expect(page).to have_content('Makers') 
+
+    expect(current_path).to eq "/space/creation"
   end
 end

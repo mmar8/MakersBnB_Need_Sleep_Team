@@ -17,14 +17,15 @@ class UserController < Sinatra::Base
   end
 
   post '/signup' do
-    @user = User.create(name: params[:name], username: params[:username], password: params[:password], email: params[:email])
-    session[:userid]=@user.id
-    redirect "/user/#{session[:userid]}"
-  end
+    @user = User.create(
+      name: params[:name], 
+      username: params[:username], 
+      password: params[:password], 
+      email: params[:email]
+    )
 
-  get '/user/:userid' do
-     @user = User.find_by(id: session[:userid])
-    erb :welcome
+    session[:userid] = @user.id
+    redirect "/spaces"
   end
 
   get '/login' do
@@ -35,7 +36,7 @@ class UserController < Sinatra::Base
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
       session[:userid] = user.id
-      redirect "/user/#{user.id}"
+      redirect "/spaces"
     else
       erb :error
     end

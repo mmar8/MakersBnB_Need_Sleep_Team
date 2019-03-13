@@ -9,7 +9,12 @@ def create_space(name, description, price)
   click_button 'Submit'
 end
 
-def sign_up(name, username, password, email)
+def sign_up(
+  name: name, 
+  username: username, 
+  password: password, 
+  email: email
+)
   visit '/'
   click_button('sign-up')
 
