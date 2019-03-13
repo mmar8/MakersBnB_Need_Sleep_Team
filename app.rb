@@ -14,6 +14,13 @@ class SleeperManager<Sinatra::Base
   end
 
   enable :sessions
+
+  configure do
+    set :views, 'views/'
+    set :public_folder, File.expand_path('../public', __FILE__)
+  end
+
+  enable :sessions
   get '/' do
     session.clear()
     erb :index
