@@ -4,7 +4,6 @@ require 'simplecov'
 require 'simplecov-console'
 require "capybara"
 require "rspec"
-require_relative "./setup_test_helper"
 require_relative 'db_helper.rb'
 require_relative "../app.rb"
 
@@ -16,8 +15,9 @@ Capybara.app = SleeperManager
 
 RSpec.configure do |config|
   config.before(:each) do
-    empty_database
-    setup_test_database    
+    empty_booking_database
+    empty_space_database
+    empty_user_database
   end
   config.after(:each) do
     Capybara.reset_sessions!
