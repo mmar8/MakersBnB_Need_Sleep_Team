@@ -24,4 +24,7 @@ CREATE TABLE spaces(
   description varchar(2000),
   price float(4)
 );
-CREATE TABLE bookings(id serial PRIMARY KEY , space_id int() REFRENCES spaces(id), guest_id int() REFRENCES users(id), request_text varchar(1000))
+\c sleepers_test
+CREATE TABLE bookings(id serial PRIMARY KEY , space_id int REFERENCES spaces(id), guest_id int REFERENCES users(id), request_text varchar(1000))
+\c sleepers
+CREATE TABLE bookings(id serial PRIMARY KEY , space_id int REFERENCES spaces(id), guest_id int REFERENCES users(id), request_text varchar(1000))
