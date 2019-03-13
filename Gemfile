@@ -4,6 +4,7 @@ ruby "2.6.0"
 gem "pg"
 gem "sinatra"
 gem 'activerecord'
+gem 'bcrypt'
 
 group :test do
   gem "capybara"
