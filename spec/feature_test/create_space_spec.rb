@@ -7,6 +7,11 @@ feature 'able to create space' do
   let(:price) { 100 }
 
   before(:each) do
+    @user = User.create(name: 'joe123', username: 'joe', password: '1234', email: 'o@g.com')
+    visit '/login'
+    fill_in 'username', with: 'joe'
+    fill_in 'password', with: '1234'
+    click_button 'log_in'
     create_space(name, description, price)
     @saved_space = Space.all[0]
   end
@@ -26,4 +31,10 @@ feature 'able to create space' do
   scenario 'saved space includes description' do
     expect(@saved_space.description).to eq(description)
   end
+
+  scenario 'saved space includes owner_id' do 
+    expect(@saved_space.owner_id).to eq(@user.id)
+  end
+
+
 end

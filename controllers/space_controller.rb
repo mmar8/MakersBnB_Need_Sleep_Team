@@ -16,9 +16,11 @@ class SpaceController < Sinatra::Base
     Space.create(
       name: params[:name], 
       description: params[:description],
-      price: params[:price]
+      price: params[:price],
+      owner_id: session[:userid]
     )
     redirect('/space-created')
+
   end
   
   get '/space-created' do 
