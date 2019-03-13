@@ -10,9 +10,7 @@ feature 'able to view all spaces' do
     spaces.each do |space|
       Space.create(space)
     end
-
     visit ('/spaces')
-
     expect(page.all('.space').count).to eq(spaces.count)
   end
 end

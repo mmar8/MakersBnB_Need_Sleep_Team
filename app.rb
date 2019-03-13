@@ -16,8 +16,8 @@ class SleeperManager<Sinatra::Base
   end
 
   post '/signup' do
-
-    session[:userid] = User.create(name: params[:name], username: params[:username], password_input: params[:password], email: params[:email]).id
+    @user = User.create(name: params[:name], username: params[:username], password: params[:password], email: params[:email])
+    session[:userid]=@user.id
     redirect "/user/#{session[:userid]}"
   end
 
@@ -31,10 +31,10 @@ class SleeperManager<Sinatra::Base
   end
 
   post '/login' do
-    p user = User.authenticated_user(username: params[:username], password_input: params[:password])
-    if user != nil
+    user = User.find_by(username: params[:username])
+    if user && user.authenticate(params[:password])
       session[:userid] = user.id
-      redirect "/user/#{session[:userid]}"
+      redirect "/user/#{user.id}"
     else
       erb :error
     end
