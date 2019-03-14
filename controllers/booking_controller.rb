@@ -25,7 +25,7 @@ class BookingController < Sinatra::Base
   end
 
   post "/space/:id/booking" do
-    booking = Booking.create(
+    Booking.create(
       space_id: params['id'],
       guest_id: session[:userid],
       status: 'pending',

@@ -1,38 +1,15 @@
+require_relative 'web_helper.rb'
+require_relative '../db_helper.rb'
+
 feature 'can approve a booking' do
   scenario 'I would like to approve a booking' do
     owner = create_user_then_login('Jane123')
-      guest = User.create(
-        name: "Sam",
-        username: "Sam",
-        password: "12345",
-        email: "samj@h.com"
-      )
+    bookings = create_generic_bookings(owner.id)
 
-      space = Space.create(
-        name: 'Room',
-        owner_id: owner.id,
-        description: 'A room',
-        price: 100
-      )
+    click_button 'bookings for my space'
 
-      booking = Booking.create(
-        space_id: space.id,
-        guest_id: guest.id,
-        request_text: 'Book room for 4 nights',
-        status: 'pending'
-      )
+    page.find("##{bookings[0].id} .approve").click
 
-      Booking.create(
-        space_id: space.id,
-        guest_id: guest.id,
-        request_text: 'Book room for 5 nights',
-        status: 'pending'
-      )
-
-      click_button 'bookings for my space'
-
-      page.find("##{booking.id} .approve").click
-
-      expect(page.find("##{booking.id}")).to have_content('Approved')
+    expect(page.find("##{bookings[0].id}")).to have_content('Approved')
   end
 end
