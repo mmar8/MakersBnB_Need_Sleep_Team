@@ -15,9 +15,7 @@ Capybara.app = SleeperManager
 
 RSpec.configure do |config|
   config.before(:each) do
-    empty_booking_database
-    empty_space_database
-    empty_user_database
+    empty_database
   end
   config.after(:each) do
     Capybara.reset_sessions!

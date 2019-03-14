@@ -1,12 +1,11 @@
 require './lib/space.rb'
-require "./lib/user.rb"
+require './lib/booking.rb'
+require './lib/user.rb'
 
-def empty_booking_database
+def empty_database
   Booking.delete_all
-end
-
-def empty_space_database
   Space.delete_all
+  User.delete_all
 end
 
 def empty_user_database

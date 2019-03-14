@@ -20,7 +20,7 @@
           <div class='text_column space-desc' name='description'><%= space.description %></div>
         </div>
 
-        <form action='/space/:id/booking' method='post'>
+        <form action='/space/<%= space.id %>/booking' method='post'>
             <input type="textarea" name='request_description'>
             <input type='submit' value='Send'>
         </form>

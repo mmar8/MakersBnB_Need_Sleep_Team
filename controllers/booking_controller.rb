@@ -21,4 +21,12 @@ class BookingController < Sinatra::Base
 
     erb :bookings
   end
+  post "/space/:id/booking" do
+    Booking.create(space_id: params['id'], guest_id: session[:userid], request_text: params[:request_description])
+    redirect "/booking/pending"
+  end
+
+  get '/booking/pending' do
+    erb :booking_pending
+  end
 end
