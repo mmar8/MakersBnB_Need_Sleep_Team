@@ -16,6 +16,7 @@ feature 'able to request new booking' do
 
     fill_in "request_description", with: "I want to rent your house."
     click_button "Send"
+    
     expect(Booking.all[0].request_text).to eq "I want to rent your house."
     expect(Booking.all[0].space_id).to eq space.id
     expect(Booking.all[0].guest_id).to eq guest.id

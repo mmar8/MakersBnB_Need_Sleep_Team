@@ -6,7 +6,7 @@ feature 'shows listings after creation of space' do
     fill_in('password', with: '1234')
     fill_in('email', with: 'Bob@bob.bob')
     click_button('submit')
-    click_button('create-space')
+    click_button('Create Space')
     fill_in 'name', with: 'Makers'
     fill_in 'description', with: 'Living Room'
     fill_in 'price', with: '100'
