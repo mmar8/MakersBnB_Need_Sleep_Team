@@ -1,5 +1,6 @@
 require "sinatra/base"
 require './lib/space.rb'
+require "./lib/booking.rb"
 
 class SpaceController < Sinatra::Base
   configure do
@@ -7,7 +8,7 @@ class SpaceController < Sinatra::Base
     set :root, File.expand_path('../../../', __FILE__)
   end
 
-  before do 
+  before do
     path = request.path_info
     if (path != "/login"  && path != '/signup') && !session[:userid]
       redirect("/login")
@@ -38,4 +39,6 @@ class SpaceController < Sinatra::Base
 
     erb :spaces
   end
+
+
 end

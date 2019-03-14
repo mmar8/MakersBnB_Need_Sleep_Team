@@ -1,7 +1,7 @@
   <head>
     <link rel="stylesheet" type="text/css" href="/sleeper.css">
   </head>
-  
+
   <div class='page'>
     <form action='/space/creation' method='get'>
       <input type='submit' value='create-space'>
@@ -11,18 +11,16 @@
     </form>
     <div class='gallery'>
       <% @spaces.each do |space| %>
-        <div class='thumbnail space' id='<%= space.id %>'> 
+        <div class='thumbnail space' id='<%= space.id %>'>
           <div class='space-name'><%= space.name %></div>
           <div class='tag space-price' name='price'>£<%= space.price.round %> per night</div>
           <div class='text_column space-desc' name='description'><%= space.description %></div>
         </div>
-        
-        <form action='/space/:id/booking' method='post'>
+
+        <form action='/space/<%= space.id %>/booking' method='post'>
             <input type="textarea" name='request_description'>
             <input type='submit' value='Send'>
         </form>
       <% end %>
-    </div>  
-  </div>  
-  
-
+    </div>
+  </div>
