@@ -1,4 +1,15 @@
 
   <% @bookings.each do |abooking|%>
-  <div class = 'booking'><%=abooking.request_text%></div>
+  <div class = 'booking' id="<%= abooking.id %>">
+    <div>
+      <%= abooking.request_text %>
+    </div>
+    <div>
+      <%= abooking.status.capitalize %>
+    </div>
+    <form action='/booking/<%= abooking.id %>' method='post'>
+      <input type='hidden' value='patch' name="_method">
+      <button type='submit' class= 'approve' name='status' value='approved'>Approve</button>
+    </form>
+  </div>
   <%end%>
