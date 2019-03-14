@@ -20,8 +20,8 @@ feature 'able to create space' do
       @saved_space = Space.all[0]
     end
 
-    scenario 'inform user space created' do
-      expect(page).to have_content('London')
+    scenario 'redirect user to spaces page after creation' do
+      expect(current_path).to eq('/spaces')
     end
 
     scenario 'saved space includes name' do
