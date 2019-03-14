@@ -2,37 +2,65 @@ psql CREATE DATABASE sleepers ;
 
 \c sleepers ;
 
-CREATE TABLE users(id serial PRIMARY KEY , name varchar(60), username varchar(60), password_digest varchar(60), email varchar(60) );
+DROP TABLE bookings;
+
+DROP TABLE spaces;
+
+DROP TABLE users;
+
+CREATE TABLE users(
+  id serial PRIMARY KEY, 
+  name varchar(60), 
+  username varchar(60), 
+  password_digest varchar(60), 
+  email varchar(60) 
+);
+
 CREATE TABLE spaces(
   id serial PRIMARY KEY,
-<<<<<<< HEAD
   owner_id int REFERENCES users(id),
-=======
-  owner_id int() REFERENCES users(id),
->>>>>>> 02479d0eeff7a7d20d1663787edfcd77b7fd10d6
   name varchar(60),
   description varchar(2000),
   price float(4)
+);
+
+CREATE TABLE bookings(
+  id serial PRIMARY KEY, 
+  space_id int REFERENCES spaces(id), 
+  guest_id int REFERENCES users(id), 
+  request_text varchar(1000)
 );
 
 
 psql CREATE DATABASE sleepers_test;
 
-\c sleepers_test ;
+\c sleepers_test;
 
-CREATE TABLE users(id serial PRIMARY KEY, name varchar(60), username varchar(60), password_digest varchar(60), email varchar(60) );
+DROP TABLE bookings;
+
+DROP TABLE spaces;
+
+DROP TABLE users;
+
+CREATE TABLE users(
+  id serial PRIMARY KEY, 
+  name varchar(60), 
+  username varchar(60), 
+  password_digest varchar(60), 
+  email varchar(60) 
+);
+
 CREATE TABLE spaces(
   id serial PRIMARY KEY,
-<<<<<<< HEAD
   owner_id int REFERENCES users(id),
-=======
-  owner_id int() REFERENCES users(id),
->>>>>>> 02479d0eeff7a7d20d1663787edfcd77b7fd10d6
   name varchar(60),
   description varchar(2000),
   price float(4)
 );
-\c sleepers_test
-CREATE TABLE bookings(id serial PRIMARY KEY , space_id int REFERENCES spaces(id), guest_id int REFERENCES users(id), request_text varchar(1000))
-\c sleepers
-CREATE TABLE bookings(id serial PRIMARY KEY , space_id int REFERENCES spaces(id), guest_id int REFERENCES users(id), request_text varchar(1000))
+
+CREATE TABLE bookings(
+  id serial PRIMARY KEY, 
+  space_id int REFERENCES spaces(id), 
+  guest_id int REFERENCES users(id), 
+  request_text varchar(1000)
+);
