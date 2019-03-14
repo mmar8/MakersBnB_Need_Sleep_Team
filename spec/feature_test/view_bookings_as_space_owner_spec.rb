@@ -3,14 +3,14 @@ require 'booking'
 feature 'As a space owner' do
   scenario 'I will be able to view my approved and pending bookings' do
 
-  owner = create_user_then_login
+  owner = create_user_then_login('Jane123')
     guest = User.create(
       name: "Sam",
       username: "Sam",
       password: "12345",
       email: "samj@h.com"
     )
-    
+
     space = Space.create(
       name: 'Room', 
       owner_id: owner.id, 

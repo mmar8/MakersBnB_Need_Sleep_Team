@@ -1,4 +1,5 @@
 require './lib/user.rb'
+require_relative '../db_helper.rb'
 
 def create_space(name, description, price)
   visit ('/space/creation')
@@ -16,9 +17,6 @@ def sign_up(
   email:
 )
   visit '/signup'
-  # click_button('sign-up')
-
-  expect(current_path).to eq '/signup'
 
   fill_in('name', with: name)
   fill_in('username', with: username)
@@ -37,17 +35,10 @@ def login(username:, password:)
   click_button 'log_in'
 end
 
-def create_user_then_login()
-  username = 'joe'
-  password = '1234'
-  @user = User.create(
-    name: 'joe123', 
-    username: username, 
-    password: password, 
-    email: 'o@g.com'
-  )
+def create_user_then_login(username)
+  user = create_user_in_db(username)
 
-  login(username: username, password: password)
+  login(username: username, password: user.password)
 
-  @user
+  user
 end

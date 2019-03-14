@@ -7,7 +7,7 @@ feature 'able to create space' do
   let(:price) { 100 }
 
   before(:each) do
-    @user = create_user_then_login
+    @user = create_user_then_login('Sam')
     create_space(name, description, price)
     @saved_space = Space.all[0]
   end
