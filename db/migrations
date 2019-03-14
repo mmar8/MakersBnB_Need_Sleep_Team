@@ -2,41 +2,16 @@ psql CREATE DATABASE sleepers ;
 
 \c sleepers ;
 
-DROP TABLE bookings;
-
-DROP TABLE spaces;
-
-DROP TABLE users;
-
-CREATE TABLE users(
-  id serial PRIMARY KEY, 
-  name varchar(60), 
-  username varchar(60), 
-  password_digest varchar(60), 
-  email varchar(60) 
-);
-
-CREATE TABLE spaces(
-  id serial PRIMARY KEY,
-  owner_id int REFERENCES users(id),
-  name varchar(60),
-  description varchar(2000),
-  price float(4)
-);
-
-CREATE TABLE bookings(
-  id serial PRIMARY KEY, 
-  space_id int REFERENCES spaces(id), 
-  guest_id int REFERENCES users(id), 
-  request_text varchar(1000)
-);
-
-
 psql CREATE DATABASE sleepers_test;
 
 \c sleepers_test;
 
+
+# SQL to set up tables (same across all environments - test, production etc.)
+
 DROP TABLE bookings;
+
+DROP TYPE status;
 
 DROP TABLE spaces;
 
@@ -46,21 +21,24 @@ CREATE TABLE users(
   id serial PRIMARY KEY, 
   name varchar(60), 
   username varchar(60), 
-  password_digest varchar(60), 
+  password_digest varchar(60) NOT NULL, 
   email varchar(60) 
 );
 
 CREATE TABLE spaces(
   id serial PRIMARY KEY,
-  owner_id int REFERENCES users(id),
-  name varchar(60),
-  description varchar(2000),
-  price float(4)
+  owner_id int REFERENCES users(id) NOT NULL,
+  name varchar(60) NOT NULL,
+  description varchar(2000) NOT NULL,
+  price float(4) NOT NULL
 );
+
+CREATE TYPE status AS ENUM ('pending', 'approved', 'rejected');
 
 CREATE TABLE bookings(
   id serial PRIMARY KEY, 
-  space_id int REFERENCES spaces(id), 
-  guest_id int REFERENCES users(id), 
-  request_text varchar(1000)
+  space_id int REFERENCES spaces(id) NOT NULL, 
+  guest_id int REFERENCES users(id) NOT NULL, 
+  request_text varchar(1000) NOT NULL,
+  status status NOT NULL
 );
