@@ -4,7 +4,7 @@ require_relative '../db_helper.rb'
 feature 'can reject a booking' do
   scenario 'I would like to reject a booking' do
     owner = create_user_then_login('Jane123')
-    bookings = create_generic_bookings(owner.id)
+    bookings = create_generic_bookings(owner.id)[:bookings]
 
     click_button 'bookings for my space'
 

@@ -45,5 +45,5 @@ def create_generic_bookings(owner_id)
     ))
   end
 
-  bookings
+  bookings_with_guest = { bookings: bookings, guest: guest }
 end

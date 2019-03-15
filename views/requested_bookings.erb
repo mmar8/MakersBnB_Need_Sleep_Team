@@ -1,0 +1,9 @@
+<% @my_bookings.each do %>
+<% |booking| %>
+<div class="booking" >
+<%= booking.name %>
+<%= booking.request_text %>
+<%= booking.status %>
+</div>
+<br>
+<% end %>

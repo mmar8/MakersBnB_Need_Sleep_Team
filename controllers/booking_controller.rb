@@ -43,4 +43,9 @@ class BookingController < Sinatra::Base
   get '/booking/pending' do
     erb :booking_pending
   end
+
+  get "/requested_bookings" do
+    @my_bookings = Booking.joins(:space).select('spaces.name,bookings.request_text,bookings.status,bookings.guest_id').where(guest_id: session[:userid])
+    erb :requested_bookings
+  end
 end

@@ -2,6 +2,12 @@
     <link rel="stylesheet" type="text/css" href="/sleeper.css">
   </head>
 
+  <div class ="my_bookings_status">
+    <form method="get" action="/requested_bookings">
+      <input type="submit" value="MyBookings" />
+    </form>
+  </div>
+
   <div class='page'>
     <form action='/space/creation' method='get'>
       <input type='submit' value='Create Space'>
@@ -14,16 +20,18 @@
     </form>
     <div class='gallery'>
       <% @spaces.each do |space| %>
-        <div class='thumbnail space' id='<%= space.id %>'>
-          <div class='space-name'><%= space.name %></div>
-          <div class='tag space-price' name='price'>£<%= space.price.round %> per night</div>
-          <div class='text_column space-desc' name='description'><%= space.description %></div>
-        </div>
+        <div class='listing'>
+          <div class='thumbnail space' id='<%= space.id %>'>
+            <div class='space-name'><%= space.name %></div>
+            <div class='tag space-price' name='price'>£<%= space.price.round %> per night</div>
+            <div class='text_column space-desc' name='description'><%= space.description %></div>
+          </div>
 
-        <form action='/space/<%= space.id %>/booking' method='post'>
-            <input type="textarea" name='request_description'>
-            <input type='submit' value='Send'>
-        </form>
+          <form action='/space/<%= space.id %>/booking' method='post'>
+              <input type="textarea" name='request_description'>
+              <input type='submit' value='Send'>
+          </form>
+        </div>
       <% end %>
     </div>
   </div>
