@@ -1,13 +1,14 @@
-
+  <link rel="stylesheet" type="text/css" href="/booking.css">
+  <h1><i>Your Bookings:</i></h1>
   <% @bookings.each do |abooking|%>
   <div class = 'booking' id="<%= abooking.id %>">
-    <div>
-      <%= abooking.request_text %>
+    <div class="message">
+      <%= abooking.request_text.capitalize %>
     </div>
-    <div>
+    <div class="statusdisplay">
       <%= abooking.status.capitalize %>
     </div>
-    <form action='/booking/<%= abooking.id %>' method='post'>
+    <form class = "formdisplay" action='/booking/<%= abooking.id %>' method='post'>
       <input type='hidden' value='patch' name="_method">
       <button type='submit' class= 'approve' name='status' value='approved'>
         Approve
@@ -18,3 +19,6 @@
     </form>
   </div>
   <%end%>
+  <form method="get" action="/spaces">
+    <input type='submit' value='Back'>
+  </form>

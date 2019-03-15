@@ -1,0 +1,17 @@
+body {
+}
+
+
+.booking {
+  display: flex;
+  justify-content: left;
+}
+.message {background-color: lightgreen;;
+  margin-right: +5px;
+  width: 50%
+}
+
+.statusdisplay {background-color: yellow;
+margin-right: 5px;
+width:20%
+}
