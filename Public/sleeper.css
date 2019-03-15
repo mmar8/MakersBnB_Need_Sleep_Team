@@ -7,6 +7,7 @@ body {
 .page {
   display: flex;
   justify-content: center;
+	margin-top : 100px;
 }
 
 .flex-column {
@@ -98,9 +99,25 @@ body {
 
 .booking {
   display: flex;
+	border-bottom: 2px solid #dce0e0;
 }
 
 .booking-field {
-  width: 20%;
+  width: 30%;
   margin-right: 30px;
+}
+.booking .pending{
+  color: #1B4965;
+}
+
+.booking  .approved {
+  color: #3fb34f ;
+}
+
+.booking .rejected {
+  color: #c64191 ;
+}
+.middle {
+	display: flex;
+	flex-flow: column;
 }
