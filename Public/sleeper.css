@@ -1,6 +1,6 @@
 body {
 	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
-	background-color: #FFFFFF;
+	background-color: #EDFCFB;
 	margin: 0;
 }
 
@@ -85,4 +85,9 @@ body {
 .listings{
 	width:80%;
 
+}
+
+.button_container .btn {
+	margin-right: 15px;
+	margin-top :10px;
 }
