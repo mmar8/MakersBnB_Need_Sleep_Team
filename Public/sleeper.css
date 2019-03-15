@@ -7,6 +7,7 @@ body {
 .page {
   display: flex;
   justify-content: center;
+	flex-flow: column;
 }
 
 .gallery {
@@ -68,4 +69,13 @@ body {
 .text_column {
 	text-align: justify;
 	padding: 0;
+}
+
+.left {
+	float : left;
+}
+.button_container{
+	display: flex;
+	justify-content: center;
+	width : 100%;
 }
