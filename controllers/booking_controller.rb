@@ -19,11 +19,11 @@ class BookingController < Sinatra::Base
       @bookings = Space.joins(:bookings).select("bookings.*").where(owner_id: session[:userid])
     erb :bookings
   end
-  
+
   post "/space/:id/booking" do
     booking = Booking.create(
-      space_id: params['id'], 
-      guest_id: session[:userid], 
+      space_id: params['id'],
+      guest_id: session[:userid],
       status: 'pending',
       request_text: params[:request_description]
     )
@@ -32,5 +32,10 @@ class BookingController < Sinatra::Base
 
   get '/booking/pending' do
     erb :booking_pending
+  end
+
+  get "/requested_bookings" do
+    @my_bookings = Booking.where(guest_id: session[:userid])
+    erb :requested_bookings
   end
 end
