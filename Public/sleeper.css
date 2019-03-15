@@ -1,12 +1,13 @@
 body {
 	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
-	background-color: #FFFFFF;
+	background-color: #EDFCFB;
 	margin: 0;
 }
 
 .page {
   display: flex;
   justify-content: center;
+	flex-flow: column;
 }
 
 .gallery {
@@ -14,14 +15,16 @@ body {
   flex-flow: row wrap;
 	padding-bottom: 35px;
 	margin-top: -5px;
-  width: 80%;
+  width: 100%;
+	justify-content: center;
+
 }
 
 .listing {
   display: flex;
   flex-flow: column;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
+  margin-left: 2%;
+  margin-right: 2%;
   width: 24%;
 	margin-top: 35px;
 }
@@ -46,7 +49,16 @@ body {
   padding-right: 25px;
 	border-radius: 3px;
 	padding-top: 20px;
-	border-bottom: 4px solid #6DC7D0;
+  border-bottom: 4px solid #6DC7D0;
+  margin-bottom: 20px;
+}
+
+.form-item {
+  margin-bottom: 15px;
+}
+
+.booking-submit {
+  width: 100%;
 }
 
 .gallery .thumbnail .tag {
@@ -59,4 +71,23 @@ body {
 .text_column {
 	text-align: justify;
 	padding: 0;
+}
+
+.left {
+	float : left;
+}
+.button_container{
+	display: flex;
+	justify-content: center;
+	width : 100%;
+}
+
+.listings{
+	width:80%;
+
+}
+
+.button_container .btn {
+	margin-right: 15px;
+	margin-top :10px;
 }

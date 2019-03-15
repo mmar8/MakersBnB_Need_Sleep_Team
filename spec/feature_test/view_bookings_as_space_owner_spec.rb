@@ -7,7 +7,7 @@ feature 'As a space owner' do
     owner = create_user_then_login('Jane123')
     create_generic_bookings(owner.id)
 
-    click_button 'bookings for my space'
+    click_button 'Bookings for my space'
 
     bookings = page.all('.booking')
     expect(bookings.length).to eq 2
