@@ -15,7 +15,9 @@ body {
   flex-flow: row wrap;
 	padding-bottom: 35px;
 	margin-top: -5px;
-  width: 80%;
+  width: 100%;
+	justify-content: center;
+
 }
 
 .listing {
@@ -78,4 +80,9 @@ body {
 	display: flex;
 	justify-content: center;
 	width : 100%;
+}
+
+.listings{
+	width:80%;
+
 }

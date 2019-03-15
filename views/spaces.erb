@@ -23,6 +23,7 @@
     </form>
     </div>
     <div class='gallery'>
+      <div class='listings'>
       <% @spaces.each do |space| %>
         <div class='listing'>
           <div class='thumbnail space' id='<%= space.id %>'>
@@ -37,5 +38,6 @@
           </form>
         </div>
       <% end %>
+      </div>
     </div>
   </div>
