@@ -20,8 +20,8 @@ body {
 .listing {
   display: flex;
   flex-flow: column;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
+  margin-left: 2%;
+  margin-right: 2%;
   width: 24%;
 	margin-top: 35px;
 }
@@ -46,7 +46,16 @@ body {
   padding-right: 25px;
 	border-radius: 3px;
 	padding-top: 20px;
-	border-bottom: 4px solid #6DC7D0;
+  border-bottom: 4px solid #6DC7D0;
+  margin-bottom: 20px;
+}
+
+.form-item {
+  margin-bottom: 15px;
+}
+
+.booking-submit {
+  width: 100%;
 }
 
 .gallery .thumbnail .tag {

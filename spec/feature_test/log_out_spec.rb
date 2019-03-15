@@ -8,7 +8,7 @@ feature 'To be able to sign out' do
       email: 'Bob@bob.bob' 
     )
 
-    click_button('log-out')
+    click_button('Logout')
     expect(current_path).to eq '/login'
     expect(Capybara.current_session.driver.request.session[:userid]).to eq nil
   end

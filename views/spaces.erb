@@ -1,22 +1,23 @@
   <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/sleeper.css">
   </head>
 
   <div class ="my_bookings_status">
     <form method="get" action="/requested_bookings">
-      <input type="submit" value="MyBookings" />
+      <input type="submit" class='btn btn-info' value="My bookings" />
     </form>
   </div>
 
   <div class='page'>
     <form action='/space/creation' method='get'>
-      <input type='submit' value='Create Space'>
+      <input type='submit' class='btn btn-info' value='Create space'>
     </form>
     <form action='/bookings' method='get'>
-      <input type='submit' value='bookings for my space'>
+      <input type='submit' class='btn btn-info' value='Bookings for my spaces'>
     </form>
     <form action='/log-out' method='get'>
-      <input type='submit' value='log-out'>
+      <input type='submit' class='btn btn-info' value='Logout'>
     </form>
     <div class='gallery'>
       <% @spaces.each do |space| %>
@@ -28,8 +29,8 @@
           </div>
 
           <form action='/space/<%= space.id %>/booking' method='post'>
-              <input type="textarea" name='request_description'>
-              <input type='submit' value='Send'>
+              <textarea class="form-control form-item" type="textarea" rows="2" name='request_description'></textarea>
+              <input type='submit' class='btn btn-info booking-submit' value='Send'>
           </form>
         </div>
       <% end %>

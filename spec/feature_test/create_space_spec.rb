@@ -4,7 +4,7 @@ require_relative 'web_helper.rb'
 feature 'able to create space' do
   scenario 'go to create space page' do
     create_user_then_login('Sam')
-    click_button('Create Space')
+    click_button('Create space')
 
     expect(current_path).to eq "/space/creation"
   end
