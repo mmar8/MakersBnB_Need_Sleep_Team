@@ -7,17 +7,26 @@ body {
 .page {
   display: flex;
   justify-content: center;
-	flex-flow: column;
+}
+
+.flex-column {
+  display: flex;
+  flex-flow: column;
+  width: 80%;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
 }
 
 .gallery {
   display: flex;
-  flex-flow: row wrap;
 	padding-bottom: 35px;
 	margin-top: -5px;
   width: 100%;
-	justify-content: center;
-
+  flex-flow: row wrap;
+  display: flex;
 }
 
 .listing {
@@ -82,12 +91,16 @@ body {
 	width : 100%;
 }
 
-.listings{
-	width:80%;
-
-}
-
 .button_container .btn {
 	margin-right: 15px;
 	margin-top :10px;
+}
+
+.booking {
+  display: flex;
+}
+
+.booking-field {
+  width: 20%;
+  margin-right: 30px;
 }

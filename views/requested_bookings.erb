@@ -1,9 +1,18 @@
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/sleeper.css">
+</head>
+
+<div class="page">
+  <div class="flex-column">
 <% @my_bookings.each do %>
 <% |booking| %>
-<div class="booking" >
-<%= booking.name %>
-<%= booking.request_text %>
-<%= booking.status %>
+<div class="booking">
+<div class="booking-field"><%= booking.name %></div>
+<div class="booking-field"><%= booking.request_text %></div>
+<div class="booking-field"><%= booking.status %></div>
 </div>
 <br>
 <% end %>
+  </div>
+</div>
