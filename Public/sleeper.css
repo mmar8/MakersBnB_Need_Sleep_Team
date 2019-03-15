@@ -17,6 +17,15 @@ body {
   width: 80%;
 }
 
+.listing {
+  display: flex;
+  flex-flow: column;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  width: 24%;
+	margin-top: 35px;
+}
+
 .gallery .space-price {
 	margin-bottom: 2px;
 }
@@ -31,12 +40,8 @@ body {
 
 .thumbnail {
   text-align: left;
-  width: 24%;
-	margin-top: 35px;
 	background-color: #F8F8F8;
 	padding-bottom: 20px;
-	margin-left: 0.5%;
-  margin-right: 0.5%;
   padding-left: 25px;
   padding-right: 25px;
 	border-radius: 3px;
