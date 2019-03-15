@@ -1,5 +1,7 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/booking.css">
-  <h1><i>Your Bookings:</i></h1>
+  <div class="page">
+  <h1 align="center"><i>Your Bookings:</i></h1>
   <% @bookings.each do |abooking|%>
   <div class = 'booking' id="<%= abooking.id %>">
     <div class="message">
@@ -11,16 +13,17 @@
     <form class = "formdisplay" action='/booking/<%= abooking.id %>' method='post'>
       <input type='hidden' value='patch' name="_method">
       <% abooking.status == "approved" ? ( approve_disabled = "disabled") : (approve_disabled = "") %>
-      <button type='submit' class= 'approve' name='status' value='approved' <%= approve_disabled %> >
+      <button type='submit' class= 'btn btn-info approve' name='status' value='approved' <%= approve_disabled %> >
         Approve
       </button>
       <% abooking.status == "rejected" ? ( reject_disabled = "disabled") : (reject_disabled = "") %>
-      <button type='submit' class= 'reject' name='status' value='rejected' <%= reject_disabled %> >
+      <button type='submit' class= 'btn btn-info reject' name='status' value='rejected' <%= reject_disabled %> >
         Reject
       </button>
     </form>
   </div>
   <%end%>
   <form method="get" action="/spaces">
-    <input type='submit' value='Back'>
+    <input class = 'btn btn-info' type='submit' value='Back'>
   </form>
+  </div>

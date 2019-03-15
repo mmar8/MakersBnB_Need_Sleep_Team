@@ -1,17 +1,56 @@
 body {
+	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	background: #EDFCFB;
+	margin: 0;
 }
 
+.page {
+  display: flex;
+  justify-content: center;
+	flex-flow: column;
+}
 
 .booking {
   display: flex;
   justify-content: left;
 }
-.message {background-color: lightgreen;;
-  margin-right: +5px;
+
+.formdisplay {
+  text-align: left;
+	background-color: #F8F8F8;
+	padding-bottom: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+	border-radius: 3px;
+	padding-top: 20px;
+  border-bottom: 4px solid #6DC7D0;
+  margin-bottom: 20px;
+  width: 20%
+}
+
+
+.message {
+  text-align: left;
+	background-color: #F8F8F8;
+	padding-bottom: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+	border-radius: 3px;
+	padding-top: 20px;
+  border-bottom: 4px solid #6DC7D0;
+  margin-bottom: 20px;
   width: 50%
 }
 
-.statusdisplay {background-color: yellow;
-margin-right: 5px;
-width:20%
+.statusdisplay {
+  text-align: left;
+	background-color: #F8F8F8;
+	padding-bottom: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+	border-radius: 3px;
+	padding-top: 20px;
+  border-bottom: 4px solid #6DC7D0;
+  margin-bottom: 20px;
+  width: 30%
 }
